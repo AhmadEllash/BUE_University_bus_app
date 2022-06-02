@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "654882848634",
+    "project_id": "bue-university",
+    "storage_bucket": "bue-university.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654882848634:android:430badc21019caa57fa0c3",
+        "android_client_info": {
+          "package_name": "com.slovic.bue_university_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "654882848634-msc354j8gisr6a53hqodte3mhc8tbh53.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3WIL9FMt5Fm_lNmrr4yrRpiO6EDcftDI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654882848634-msc354j8gisr6a53hqodte3mhc8tbh53.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
