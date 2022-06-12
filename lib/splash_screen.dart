@@ -32,6 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
         if (response.data()?['role'] == 'Admin') {
     Navigator.push(context, MaterialPageRoute(builder: (context)=> MainAdmin(
+    userName: response.data()?['username'],
     imageUrl:response.data()?['imageUrl'] ,
     )));
         } else if (response.data()?['role'] == 'Student') {
@@ -52,11 +53,11 @@ class _SplashScreenState extends State<SplashScreen> {
               context,
               MaterialPageRoute(
                   builder: (context) => MainBusDriver(
-                        userName: response.data()?['username'],
-                        role: response.data()?['role'],
-                        busId: bus.docs[0]['busId'],
-                        busNumber:bus.docs[0]['busNumber'] ,
-                        reservationId: response.data()?['reservationId'],
+                    userName: response.data()?['username'],
+                    role: response.data()?['role'],
+                    busId: bus.docs[0]['busId'],
+                    busNumber:bus.docs[0]['busNumber'] ,
+                    reservationId: response.data()?['reservationId'],
                     imageUrl:response.data()?['imageUrl'] ,
 
                   )));
@@ -86,19 +87,18 @@ class _SplashScreenState extends State<SplashScreen> {
             alignment: Alignment.center,
           ),
           Container(
-            margin: EdgeInsets.only(top: 60),
+            margin: EdgeInsets.only(top: 40),
             child: Align(
               alignment: Alignment.topCenter,
               child: Column(
                 children: [
-
                   Text(
-                    'The British University ',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    'The British University',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    'In Egypt ',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    'In Egypt',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -112,7 +112,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 toNext();
               },
               child: Text('Click here >',style: TextStyle(
-color: Colors.black,fontSize: 19
+                color: Colors.black,fontSize: 19
               ),),
             ),
           ),

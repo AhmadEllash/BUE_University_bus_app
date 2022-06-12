@@ -26,7 +26,11 @@ class _AllBusViewState extends State<AllBusView> {
     BlocProvider.of<BusCubit>(context).getAllBuses();
     super.initState();
   }
-
+  void showInSnackBar(String value) {
+    ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+        content:  Text(value)
+    ));
+  }
   @override
   Widget build(BuildContext context) {
     var w = MediaQuery.of(context).size.width;
@@ -99,6 +103,12 @@ class _AllBusViewState extends State<AllBusView> {
                                 time:buses[index].time ,
                               )));
                             }, icon: const Icon(Icons.edit)),
+                            const SizedBox(width: 5,),
+                            IconButton(onPressed: ()async{
+                             await FirebaseFirestore.instance.collection('busNumbers').doc(buses[index].busId).delete();
+                             showInSnackBar('Bus has been deleted successfully');
+
+                            }, icon: const Icon(Icons.delete,color: Colors.red,)),
                             const SizedBox(width: 5,),
                             // IconButton(onPressed: (){
                             //

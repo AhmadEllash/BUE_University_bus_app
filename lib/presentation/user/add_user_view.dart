@@ -32,7 +32,11 @@ class _AddUserViewState extends State<AddUserView> {
   String userId = Uuid().v4();
   File? myPickedImage;
   String? imageUrl;
-
+  void showInSnackBar(String value) {
+    ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+        content:  Text(value)
+    ));
+  }
   List<String> roles = ['Student', 'Admin', 'BusDriver'];
   pickImage() async {
     final ImagePicker _picker = ImagePicker();
@@ -80,6 +84,7 @@ storage
           'imageUrl':imageUrl,
 
         });
+       showInSnackBar('User saved successfully');
         // Navigator.pushReplacementNamed(context, AppRoutes.homeScreen);
       } catch (e) {
         return 'username or password is invalid.';

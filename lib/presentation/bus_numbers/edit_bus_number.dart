@@ -22,7 +22,11 @@ class _EditBusNumberViewState extends State<EditBusNumberView> {
 
   final _formKey = GlobalKey<FormState>();
   final auth = FirebaseAuth.instance;
-
+  void showInSnackBar(String value) {
+    ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+        content:  Text(value)
+    ));
+  }
   String time = '4';
 
   List<String> times = ['4', '12', '9'];
@@ -40,6 +44,7 @@ class _EditBusNumberViewState extends State<EditBusNumberView> {
           'destination': destination,
           'time':time,
         });
+        showInSnackBar('Bus updated successfully');
         // Navigator.pushReplacementNamed(context, AppRoutes.homeScreen);
       } catch (e) {
         return e.toString();

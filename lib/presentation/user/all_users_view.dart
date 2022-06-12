@@ -18,7 +18,11 @@ class _AllUsersViewState extends State<AllUsersView> {
   var users;
   late List allUsers;
   bool state = true;
-
+  void showInSnackBar(String value) {
+    ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+        content:  Text(value)
+    ));
+  }
   @override
   void initState() {
     BlocProvider.of<UserCubit>(context).getAllUsers();
@@ -100,6 +104,7 @@ class _AllUsersViewState extends State<AllUsersView> {
                       const SizedBox(width: 5,),
                       IconButton(onPressed: ()async{
                         await FirebaseFirestore.instance.collection('users').doc(users[index].uid).delete();
+                        showInSnackBar('user has been deleted successfully');
                       }, icon: const Icon(Icons.delete,color: Colors.red,)),
                     ],),
 

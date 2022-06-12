@@ -6,11 +6,12 @@ import '../resources/routes_manager.dart';
 import '../resources/values_manager.dart';
 
 class EditUserView extends StatefulWidget {
+  final String ?id;
  final String? email;
  final String? password;
  final String? userName;
  final String? role;
-EditUserView({this.userName,this.email,this.password,this.role});
+EditUserView({this.id,this.userName,this.email,this.password,this.role});
   // const LoginView({Key? key}) : super(key: key);
 
   @override
@@ -22,9 +23,15 @@ class _EditUserViewState extends State<EditUserView> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  void showInSnackBar(String value) {
+    ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+        content:  Text(value)
+    ));
+  }
+
   final _formKey = GlobalKey<FormState>();
   final auth = FirebaseAuth.instance;
-  String role = 'Student';
+  String? role ;
 
   List<String> roles = ['Student', 'Admin', 'BusDriver'];
 
@@ -35,14 +42,15 @@ class _EditUserViewState extends State<EditUserView> {
 
         await FirebaseFirestore.instance
             .collection('users')
-            .doc(auth.currentUser?.uid)
+            .doc(widget.id)
             .update({
-          'id': auth.currentUser?.uid,
+          'id': widget.id,
           'email': email,
           'password': password,
           'username': username,
           'role': role,
         });
+        showInSnackBar('User updated successfully');
         // Navigator.pushReplacementNamed(context, AppRoutes.homeScreen);
       } catch (e) {
         return e.toString();
@@ -55,6 +63,7 @@ class _EditUserViewState extends State<EditUserView> {
     _usernameController.text = widget.userName!;
     _passwordController.text = widget.password!;
     _emailController.text = widget.email!;
+    role = widget.role;
 
   }
 
@@ -153,6 +162,7 @@ class _EditUserViewState extends State<EditUserView> {
                         // hintText: 'email',
                           labelText: 'password'),
                       controller: _passwordController,
+                      readOnly: true,
                       obscureText: true,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -187,7 +197,7 @@ class _EditUserViewState extends State<EditUserView> {
                                   _emailController.text,
                                   _passwordController.text,
                                   _usernameController.text,
-                                  role);
+                                  role!);
                               setState(() {
                                 _usernameController.clear();
                                 _emailController.clear();

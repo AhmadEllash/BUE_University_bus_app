@@ -34,17 +34,7 @@ class _GoogleMapScreenthreeState extends State<GoogleMapScreenthree> {
 // Starting point longitude
   final double _originLongitude = 31.49191699033166;
 
-  final double _originLatitude2 = 30.166024033656765;
 
-  final double _originLongitude2 = 31.489370994830118;
-
-  final double _originLatitude3 = 30.172546813566775;
-
-  final double _originLongitude3 = 31.538802533026416;
-
-  final double _originLatitude4 = 30.22854982325609;
-
-  final double _originLongitude4 = 31.480355126128806;
 
 // Destination latitude
   final double _destLatitude = 30.118032876014972;

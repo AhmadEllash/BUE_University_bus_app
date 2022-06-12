@@ -19,6 +19,11 @@ class _AddBusNumberViewState extends State<AddBusNumberView> {
   final TextEditingController _busNumberController = TextEditingController();
   final TextEditingController _busDestinationController = TextEditingController();
 
+  void showInSnackBar(String value) {
+    ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+        content:  Text(value)
+    ));
+  }
 
   final _formKey = GlobalKey<FormState>();
   final auth = FirebaseAuth.instance;
@@ -45,6 +50,7 @@ class _AddBusNumberViewState extends State<AddBusNumberView> {
           'time':time,
           'reservations':[],
         });
+showInSnackBar('Bus saved successfully');
         // Navigator.pushReplacementNamed(context, AppRoutes.homeScreen);
       } catch (e) {
         return e.toString();

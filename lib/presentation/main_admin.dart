@@ -5,8 +5,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 class MainAdmin extends StatefulWidget {
+  String ? userName;
   String ?imageUrl;
-  MainAdmin({this.imageUrl});
+  MainAdmin({this.imageUrl,this.userName});
   @override
   _MainAdminState createState() => _MainAdminState();
 }
@@ -33,8 +34,7 @@ class _MainAdminState extends State<MainAdmin> {
                   }, child:  Icon(Icons.logout)),
                   Column(
                     children:  [
-                      Text(FirebaseAuth.instance.currentUser!.email!,style: const TextStyle(fontSize: 15),),
-                      Text(FirebaseAuth.instance.currentUser!.uid,style: const TextStyle(fontSize: 10),),
+                      Text(widget.userName ?? "",style: TextStyle(fontSize: 15),),
                     ],
                   ),
                   // const SizedBox(

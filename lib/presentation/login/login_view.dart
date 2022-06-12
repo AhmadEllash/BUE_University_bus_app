@@ -5,6 +5,7 @@ import 'package:bue_university_project/presentation/resources/routes_manager.dar
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../resources/assets_manager.dart';
 import '../resources/values_manager.dart';
@@ -21,6 +22,12 @@ class _LoginViewState extends State<LoginView> {
   TextEditingController _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
+  void showInSnackBar(String value) {
+    ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+        content:  Text(value,style: TextStyle(color: Colors.white),),
+      backgroundColor: Colors.red,
+    ));
+  }
   Future login(String email , String password)async {
     if(_formKey.currentState!.validate()){
       try {
@@ -39,6 +46,7 @@ class _LoginViewState extends State<LoginView> {
 
         if (response.data()?['role'] == 'Admin') {
           Navigator.push(context, MaterialPageRoute(builder: (context)=> MainAdmin(
+            userName: response.data()?['username'],
             imageUrl:response.data()?['imageUrl'] ,
           )));
         } else if (response.data()?['role'] == 'Student') {
@@ -65,7 +73,7 @@ class _LoginViewState extends State<LoginView> {
                     reservationId: response.data()?['reservationId'],
                   )));
         }      } catch (e) {
-        return 'username or password is invalid.';
+        showInSnackBar('email or password is invalid');
       }
     }
 
@@ -97,10 +105,6 @@ class _LoginViewState extends State<LoginView> {
                 Container(
                   margin: const EdgeInsets.only(top: AppMargin.m10),
                   child: const Text('BUE Bus Application',style: TextStyle(color: Colors.black,fontSize: 19,fontWeight:FontWeight.bold),),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: AppMargin.m10),
-                  child: const Text('Welcome',style: TextStyle(color: Colors.black,fontSize: 19,fontWeight:FontWeight.bold),),
                 ),
                 const SizedBox(
                   height: AppSize.s22,
@@ -163,6 +167,31 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 const SizedBox(
                   height: AppSize.s22,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    IconButton(onPressed: ()async{
+                      if (!await launchUrl(Uri.parse('https://www.facebook.com/thebritishuniversityegypt/'))) throw 'Could not launch url';
+                    }, icon:Icon(Icons.facebook),
+                    ),
+                    SizedBox(
+                      width: 6,
+                    ),
+                    IconButton(onPressed: ()async{
+                      if (!await launchUrl(Uri.parse('https://www.instagram.com/thebritishuniversityinegypt/'))) throw 'Could not launch url';
+                    }, icon:Image.asset(AppAssets.instagram),
+                    ),
+                    SizedBox(
+                      width: 6,
+                    ),
+                    IconButton(onPressed: ()async{
+                      if (!await launchUrl(Uri.parse('https://www.bue.edu.eg/'))) throw 'Could not launch url';
+                    }, icon:Icon(Icons.web),
+                    ),
+                  ],
+
                 ),
                 // Row(
                 //   mainAxisAlignment: MainAxisAlignment.center,

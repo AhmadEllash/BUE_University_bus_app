@@ -4,5 +4,7 @@ class AppAssets{
   static const login_logo = "$imageAsset/logo.png";
   static const bus = '$imageAsset/bus.png';
   static const background = '$imageAsset/background.jpeg';
+  static const instagram = '$imageAsset/instagram.png';
+
 
 }

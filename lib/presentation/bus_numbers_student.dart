@@ -31,12 +31,6 @@ class _AllBusStudentViewState extends State<AllBusStudentView> {
       appBar: AppBar(
         title: Text('All Buses'),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          Navigator.pushNamed(context, AppRoutes.addBusRoute);
-        },
-        child: Icon(Icons.add),
-      ),
       body: BlocBuilder<BusCubit, BusState>(
         builder: (context, state) {
           if(state is GetAllBusesLoadingState){

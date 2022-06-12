@@ -60,8 +60,7 @@ class _MainBusDriverState extends State<MainBusDriver> {
                   }, child: Icon(Icons.logout)),
                   Column(
                     children:  [
-                      Text(FirebaseAuth.instance.currentUser!.email!,style: TextStyle(fontSize: 15),),
-                      Text(FirebaseAuth.instance.currentUser!.uid,style: TextStyle(fontSize: 10),),
+                      Text(widget.userName ?? "",style: TextStyle(fontSize: 15),),
                     ],
                   ),
                   // const SizedBox(

@@ -88,12 +88,7 @@ class _ReservationListViewState extends State<ReservationListView> {
                                             SizedBox(
                                               height: 20,
                                             ),
-                                            Row(
-                                              children: [
-                                                Text("uid :  "),
-                                                Text(data[index].uid ?? ""),
-                                              ],
-                                            ),
+
                                             Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceBetween,
@@ -129,7 +124,7 @@ class _ReservationListViewState extends State<ReservationListView> {
                                                     icon: Icon(
                                                       Icons.delete,
                                                       color: Colors.red,
-                                                    )),
+                                                    ),),
                                               ],
                                             ),
                                           ]))

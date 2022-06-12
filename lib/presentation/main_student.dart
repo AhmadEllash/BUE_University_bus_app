@@ -1,3 +1,4 @@
+import 'package:bue_university_project/presentation/bus_numbers_student.dart';
 import 'package:bue_university_project/presentation/qr_code.dart';
 import 'package:bue_university_project/presentation/resources/routes_manager.dart';
 import 'package:bue_university_project/presentation/resources/values_manager.dart';
@@ -58,8 +59,8 @@ class _HomeViewState extends State<HomeView> {
                 }, child: Icon(Icons.logout)),
                 Column(
                   children:  [
-                    Text(FirebaseAuth.instance.currentUser!.email!,style: TextStyle(fontSize: 15),),
-                    Text(FirebaseAuth.instance.currentUser!.uid,style: TextStyle(fontSize: 10),),
+                    Text(widget.userName ?? "",style: TextStyle(fontSize: 15),),
+                    // Text(FirebaseAuth.instance.currentUser!.uid,style: TextStyle(fontSize: 10),),
                   ],
                 ),
                 // const SizedBox(
@@ -105,7 +106,7 @@ class _HomeViewState extends State<HomeView> {
                     backgroundColor: MaterialStateProperty.all(Colors.blue)
                   ),
                     onPressed: () {
-
+                          Navigator.pushNamed(context, AppRoutes.allBusesStudent);
                       // signUp(_emailController.text, _passwordController.text);
                     }, child: const Text('Bus Numbers',style:TextStyle(
                   fontSize: AppSize.s14,
@@ -159,7 +160,8 @@ class _HomeViewState extends State<HomeView> {
                         showInSnackBar('your reservation is canceled successfully');
 
                       }catch(e){
-                        e.toString();
+                        showInSnackBar('There is no reservation');
+
                       }
                     }, child: const Text('Cancel Reservation',style:TextStyle(
                   fontSize: AppSize.s14,
