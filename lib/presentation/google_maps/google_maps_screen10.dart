@@ -10,48 +10,43 @@ import 'package:google_map_polyline_new/google_map_polyline_new.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class GoogleMapScreen extends StatefulWidget {
+class GoogleMapScreenTen extends StatefulWidget {
   String ?busId;
-   GoogleMapScreen({this.busId});
+  GoogleMapScreenTen({this.busId});
 
   @override
-  _GoogleMapScreenState createState() => _GoogleMapScreenState();
+  _GoogleMapScreenTenState createState() => _GoogleMapScreenTenState();
 }
 
-class _GoogleMapScreenState extends State<GoogleMapScreen> {
+class _GoogleMapScreenTenState extends State<GoogleMapScreenTen> {
   List<Marker> myMarkers = [];
   final Set<Polyline> polyline = {};
   List<LatLng> routeCoordinates = [];
   GoogleMapPolyline googleMapPolyline =
-      GoogleMapPolyline(apiKey: 'AIzaSyA3WIL9FMt5Fm_lNmrr4yrRpiO6EDcftDI');
+  GoogleMapPolyline(apiKey: 'AIzaSyA3WIL9FMt5Fm_lNmrr4yrRpiO6EDcftDI');
   PolylinePoints polylinePoints = PolylinePoints();
   Map<PolylineId, Polyline> polylines = {};
 
 
 // Starting point latitude
-  final double _originLatitude = 30.22854982325609;
+  final double _originLatitude = 30.013588444874035;
+
 // Starting point longitude
-  final double _originLongitude = 31.480355126128806;
+  final double _originLongitude = 31.49191699033166;
 
-  final double _originLatitude2 = 30.166024033656765;
 
-  final double _originLongitude2 = 31.489370994830118;
 
-  final double _originLatitude3 =  30.172546813566775;
-
-  final double _originLongitude3 =  31.538802533026416;
-
-  final double _originLatitude4 = 30.22854982325609;
-
-  final double _originLongitude4 = 31.480355126128806;
 // Destination latitude
   final double _destLatitude = 30.118032876014972;
+
 // Destination Longitude
   final double _destLongitude = 31.60598500076346;
+
 // Markers to show points on the map
 
   Map<MarkerId, Marker> markers = {};
   final Completer<GoogleMapController> _controller = Completer();
+
   // Configure map position and zoom
   final CameraPosition _kGooglePlex = const CameraPosition(
     target: LatLng(30.22854982325609, 31.48035512612880),
@@ -105,7 +100,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
   _addMarker(LatLng position, String id, BitmapDescriptor descriptor) {
     MarkerId markerId = MarkerId(id);
     Marker marker =
-        Marker(markerId: markerId, icon: descriptor, position: position);
+    Marker(markerId: markerId, icon: descriptor, position: position);
     markers[markerId] = marker;
   }
   void _getPolyline() async {
@@ -145,22 +140,3 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
     setState(() {});
   }
 }
-
-// void onMapCreated(GoogleMapController controller){
-// setState(() {
-//   _controller = controller;
-//   polyline.add(Polyline(
-//       polylineId: PolylineId('route1'),
-//       visible: true,
-//       points: routeCoordinates,
-//       width: 4,
-//       color: Colors.blue,
-//       startCap: Cap.roundCap,
-//       endCap: Cap.buttCap));
-//
-// });
-// }
-//  cameraPosition(){
-//   return CameraPosition(target:LatLng(29.985086280018503, 31.021309222503326),zoom: 14.0
-//   );
-// }

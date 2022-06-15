@@ -5,6 +5,9 @@ class AppAssets{
   static const bus = '$imageAsset/bus.png';
   static const background = '$imageAsset/background.jpeg';
   static const instagram = '$imageAsset/instagram.png';
+  static const facebook = '$imageAsset/facebook.png';
+  static const web = '$imageAsset/world-wide-web.png';
+
 
 
 }

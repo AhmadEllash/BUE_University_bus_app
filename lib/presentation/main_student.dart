@@ -1,4 +1,10 @@
 import 'package:bue_university_project/presentation/bus_numbers_student.dart';
+import 'package:bue_university_project/presentation/google_maps/google_maps_screen10.dart';
+import 'package:bue_university_project/presentation/google_maps/google_maps_screen5.dart';
+import 'package:bue_university_project/presentation/google_maps/google_maps_screen6.dart';
+import 'package:bue_university_project/presentation/google_maps/google_maps_screen7.dart';
+import 'package:bue_university_project/presentation/google_maps/google_maps_screen8.dart';
+import 'package:bue_university_project/presentation/google_maps/google_maps_screen9.dart';
 import 'package:bue_university_project/presentation/qr_code.dart';
 import 'package:bue_university_project/presentation/resources/routes_manager.dart';
 import 'package:bue_university_project/presentation/resources/values_manager.dart';
@@ -7,6 +13,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
+import 'google_maps/google_maps_screen4.dart';
 import 'resources/assets_manager.dart';
 class HomeView extends StatefulWidget {
   // const HomeView({Key? key}) : super(key: key);
@@ -128,8 +135,33 @@ class _HomeViewState extends State<HomeView> {
                         Navigator.pushNamed(context, AppRoutes.googleMap);
                       }else if(widget.busNumber == '102'){
                         Navigator.pushNamed(context, AppRoutes.googleMapScreenTwo);
-                      }else{
+
+                      }
+                      else if (widget.busNumber == '103'){
                         Navigator.pushNamed(context, AppRoutes.googleMapScreenThere);
+                      }
+                      else if (widget.busNumber == '104'){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>GoogleMapScreenFour()));
+                      }
+
+                      else if (widget.busNumber == '105'){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>GoogleMapScreenFive()));
+
+                      }else if (widget.busNumber == '106'){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>GoogleMapScreenSix()));
+
+                      }else if (widget.busNumber == '107'){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>GoogleMapScreenSeven()));
+
+                      }else if (widget.busNumber == '108'){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>GoogleMapScreenEight()));
+
+                      }
+                      else if (widget.busNumber == '109'){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>GoogleMapScreenNine()));
+
+                      }else if (widget.busNumber == '110'){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>GoogleMapScreenTen()));
 
                       }
                     }, child: const Text('Bus Routes',style:TextStyle(

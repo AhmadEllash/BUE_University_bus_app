@@ -20,7 +20,11 @@ class ReservationListView extends StatefulWidget {
 class _ReservationListViewState extends State<ReservationListView> {
   final auth = FirebaseAuth.instance;
 
-  final _formKey = GlobalKey<FormState>();
+  void showInSnackBar(String value) {
+    ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+        content:  Text(value)
+    ));
+  }
   //
   // getUser()async{
   //   final response =  await FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).get();
@@ -120,6 +124,7 @@ class _ReservationListViewState extends State<ReservationListView> {
                                                         'reservationId': '',
                                                         'isReserved': false,
                                                       });
+                                                      showInSnackBar('Reservation deleted Successfully');
                                                     },
                                                     icon: Icon(
                                                       Icons.delete,

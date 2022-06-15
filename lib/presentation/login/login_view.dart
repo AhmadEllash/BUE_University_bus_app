@@ -174,21 +174,23 @@ class _LoginViewState extends State<LoginView> {
                   children: [
                     IconButton(onPressed: ()async{
                       if (!await launchUrl(Uri.parse('https://www.facebook.com/thebritishuniversityegypt/'))) throw 'Could not launch url';
-                    }, icon:Icon(Icons.facebook),
+                    }, icon:Image.asset(AppAssets.facebook,height:50),
                     ),
                     SizedBox(
                       width: 6,
                     ),
                     IconButton(onPressed: ()async{
                       if (!await launchUrl(Uri.parse('https://www.instagram.com/thebritishuniversityinegypt/'))) throw 'Could not launch url';
-                    }, icon:Image.asset(AppAssets.instagram),
+                    }, icon:Image.asset(AppAssets.instagram,height:50),
                     ),
                     SizedBox(
                       width: 6,
+                      height: 10,
+
                     ),
                     IconButton(onPressed: ()async{
                       if (!await launchUrl(Uri.parse('https://www.bue.edu.eg/'))) throw 'Could not launch url';
-                    }, icon:Icon(Icons.web),
+                    }, icon:Image.asset(AppAssets.web,height:50),
                     ),
                   ],
 

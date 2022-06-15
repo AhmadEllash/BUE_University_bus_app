@@ -86,33 +86,34 @@ class _SplashScreenState extends State<SplashScreen> {
             width: double.infinity,
             alignment: Alignment.center,
           ),
-          Container(
-            margin: EdgeInsets.only(top: 40),
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: Column(
-                children: [
-                  Text(
-                    'The British University',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    'In Egypt',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          // Container(
+          //   margin: EdgeInsets.only(top: 26),
+          //   child: Align(
+          //     alignment: Alignment.topCenter,
+          //     child: Column(
+          //       children: [
+          //         Text(
+          //           'The British University',
+          //           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          //         ),
+          //         Text(
+          //           'In Egypt',
+          //           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
           Positioned(
-            bottom: 0.05 * h,
+            bottom: 0.02 * h,
             right: 0.34 * width,
             child: TextButton(
               onPressed: (){
                 toNext();
               },
               child: Text('Click here >',style: TextStyle(
-                color: Colors.black,fontSize: 19
+                color: Colors.black,fontSize: 22,
+                fontWeight: FontWeight.bold,
               ),),
             ),
           ),

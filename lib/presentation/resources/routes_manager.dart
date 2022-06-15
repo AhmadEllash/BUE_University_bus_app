@@ -1,13 +1,13 @@
 import 'package:bue_university_project/domain/cubit/buses/bus_cubit.dart';
 import 'package:bue_university_project/domain/cubit/user/user_cubit.dart';
-import 'package:bue_university_project/google_maps_screen.dart';
+import 'package:bue_university_project/presentation/google_maps/google_maps_screen.dart';
 import 'package:bue_university_project/presentation/bus_numbers/add_busNumbers.dart';
 import 'package:bue_university_project/presentation/bus_numbers/all_bus_numbers.dart';
 import 'package:bue_university_project/presentation/bus_numbers/edit_bus_number.dart';
 import 'package:bue_university_project/presentation/bus_numbers_student.dart';
 import 'package:bue_university_project/presentation/bus_recorder.dart';
-import 'package:bue_university_project/presentation/google_maps_screen2.dart';
-import 'package:bue_university_project/presentation/google_maps_screen3.dart';
+import 'package:bue_university_project/presentation/google_maps/google_maps_screen2.dart';
+import 'package:bue_university_project/presentation/google_maps/google_maps_screen3.dart';
 import 'package:bue_university_project/presentation/main_busdriver.dart';
 import 'package:bue_university_project/presentation/main_student.dart';
 import 'package:bue_university_project/presentation/login/login_view.dart';
